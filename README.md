@@ -6,7 +6,7 @@ IDの入力も可能です<br />
 -----------
 * 以下のリンクをGoogle Chromeで開き"続行"を選択します
 
-https://github.com/downloads/kyohei8/salesforceLinker/sfl2_v1.3.1.crx
+https://github.com/downloads/kyohei8/SalesforceLinkonOmnibox/SalesforceLinkonOmnibox_v1.crx
 
 Reference
 -----------
