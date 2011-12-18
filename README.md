@@ -11,7 +11,7 @@ https://github.com/downloads/kyohei8/SalesforceLinkonOmnibox/SalesforceLinkonOmn
 Reference
 -----------
 Wiki参照
-
+https://github.com/kyohei8/SalesforceLinkonOmnibox/wiki/Reference
 
 <br />
 更新履歴
