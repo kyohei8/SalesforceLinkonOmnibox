@@ -1,0 +1,11 @@
+{
+  "name": "Salesforce Link Omnibox",
+  "description" : "SalesforceのリンクをOmniboxから指定",
+  "version": "1.0",
+  "icons": {
+    "16": "icon16.png"
+  },
+  "background_page": "background.html",
+  "omnibox": { "keyword" : "sf" },
+  "permissions" : ["tabs","http://*.salesforce.com/*"]
+}

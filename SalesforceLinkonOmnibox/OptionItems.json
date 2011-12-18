@@ -1,0 +1,474 @@
+[
+  
+    {"name"    :"ホーム",
+     "id"      :"home,ホーム",
+     "linkURL" :"/home/home.jsp"},
+     
+    {"name"    :"Chatter",
+     "id"      :"chatter",
+     "linkURL" :"/_ui/core/chatter/ui/ChatterPage"},
+
+    {"name"    :"すべてのタブ",
+     "id"      :"alltab,すべてのタブ",
+     "linkURL" :"/home/showAllTabs.jsp"},
+
+    {"name"    :"高度な検索",
+     "id"      :"advsearch,高度な検索",
+     "linkURL" :"/search/AdvancedSearch"},
+
+    {"name"    :"設定",
+     "id"      :"setup,設定",
+     "linkURL" :"/ui/setup/Setup"},
+
+    {"name"    :"システムログ",
+     "id"      :"syslog,systemlog,システムログ",
+     "linkURL" :"/_ui/common/apex/debug/ApexCSIPage"},
+
+    {"name"    :"ヘルプ",
+     "id"      :"help,ヘルプ",
+     "linkURL" :"/help/doc/user_ed.jsp"},
+     
+    {"name"    :"取引先一覧",
+     "id"      :"v account,v 取引先",
+     "linkURL" :"/001"},
+
+    {"name"    :"取引先責任者一覧",
+     "id"      :"v contact,v 取引先責任者",
+     "linkURL" :"/003"},
+
+    {"name"    :"商談一覧",
+     "id"      :"v opportunity,v 商談",
+     "linkURL" :"/006"},
+
+    {"name"    :"契約一覧",
+     "id"      :"v contract,v 契約",
+     "linkURL" :"/800"},
+
+    {"name"    :"ケース一覧",
+     "id"      :"v case,v ケース",
+     "linkURL" :"/500"},
+
+    {"name"    :"リード一覧",
+     "id"      :"v lead,v リード",
+     "linkURL" :"/00Q"},
+
+    {"name"    :"ユーザ一覧",
+     "id"      :"v user,v ユーザ",
+     "linkURL" :"/005"},
+
+    {"name"    :"ソリューション一覧",
+     "id"      :"v solution,v ソリューション",
+     "linkURL" :"/501"},
+
+    {"name"    :"レポート一覧",
+     "id"      :"v report,v レポート",
+     "linkURL" :"/00O"},
+
+    {"name"    :"ダッシュボード一覧",
+     "id"      :"v dashboard,v ダッシュボード",
+     "linkURL" :"/01Z"},
+
+    {"name"    :"ドキュメント一覧",
+     "id"      :"v docment,v ドキュメント",
+     "linkURL" :"/015"},
+     
+    {"name"    :"私の個人情報",
+     "id"      :"personalInfo,私の個人情報",
+     "linkURL" :"/ui/setup/Setup?setupid=PersonalInfo"},
+
+    {"name"    :"メール",
+     "id"      :"email,メール",
+     "linkURL" :"/ui/setup/Setup?setupid=EmailSetup"},
+
+    {"name"    :"インポート",
+     "id"      :"import,インポート",
+     "linkURL" :"/ui/setup/Setup?setupid=EmailSetup"},
+
+    {"name"    :"デスクトップ統合",
+     "id"      :"desktopIntegration,デスクトップ統合",
+     "linkURL" :"/ui/setup/Setup?setupid=DesktopIntegration"},
+
+    {"name"    :"私の Chatter 設定",
+     "id"      :"personalCollaboration,personalchatter,私の Chatter 設定",
+     "linkURL" :"/ui/setup/Setup?setupid=PersonalCollaboration"},
+
+    {"name"    :"タブと表示ラベルの名称変更",
+     "id"      :"renametabsandlabels,タブと表示ラベルの名称変更",
+     "linkURL" :"/ui/setup/RenameTabPage"},
+
+    {"name"    :"ヘルプ設定",
+     "id"      :"helpsettings,ヘルプ設定",
+     "linkURL" :"/setup/ui/helpsettingedit.jsp"},
+
+    {"name"    :"ホームページのコンポーネント",
+     "id"      :"homepagecomponents,ホームページのコンポーネント",
+     "linkURL" :"/setup/ui/homepagecomponents.jsp"},
+
+    {"name"    :"ホームページのページレイアウト",
+     "id"      :"homepagelayouts,ホームページのページレイアウト",
+     "linkURL" :"/02T"},
+
+    {"name"    :"カスタムリンク",
+     "id"      :"customlinks,カスタムリンク",
+     "linkURL" :"/p/setup/link/CustomResourceLinkList?pageName=CustomPageItem&type=CustomPageItem"},
+
+    {"name"    :"活動の設定",
+     "id"      :"activity,活動の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Activity"},
+
+    {"name"    :"取引先の設定",
+     "id"      :"accountsetting,取引先の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Account"},
+
+    {"name"    :"取引先責任者の設定",
+     "id"      :"contactsetting,取引先責任者の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Contact"},
+
+    {"name"    :"キャンペーンの設定",
+     "id"      :"campaignsetting,キャンペーンの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Campaign"},
+
+    {"name"    :"リードの設定",
+     "id"      :"leadsetting,リードの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Lead"},
+
+    {"name"    :"商談の設定",
+     "id"      :"opportunitysetting,商談の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Opportunity"},
+     
+    {"name"    :"商談商品の設定",
+     "id"      :"opportunitylineitemsetting,商談商品の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=OpportunityLineItem"},
+
+    {"name"    :"見積の設定",
+     "id"      :"quotesetting,見積の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Quote"},
+
+    {"name"    :"見積品目名の設定",
+     "id"      :"quoteLineItemsetting,見積品目名の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=QuoteLineItem"},
+
+    {"name"    :"ケースの設定",
+     "id"      :"casesetting,ケースの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Case"},
+
+    {"name"    :"カスタマイザブル売上予測の設定",
+     "id"      :"forecastsetting,カスタマイザブル売上予測の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Forecast"},
+
+    {"name"    :"セルフサービスの設定",
+     "id"      :"selfservicessetting,セルフサービスの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=SelfService"},
+     
+    {"name"    :"コールセンターの設定",
+     "id"      :"callcentereditionsetting,コールセンターの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=CallCenterEdition"},
+     
+    {"name"    :"契約の設定",
+     "id"      :"contractsetting,契約の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Contract"},
+
+    {"name"    :"ソリューションの設定",
+     "id"      :"solutionssetting,ソリューションの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Solutions"},
+
+    {"name"    :"商品の設定",
+     "id"      :"productsfields,商品の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Products"},
+
+    {"name"    :"パートナー",
+     "id"      :"partnerportal,パートナー",
+     "linkURL" :"/ui/setup/Setup?setupid=PartnerPortal"},
+
+    {"name"    :"Salesforce to Salesforce",
+     "id"      :"s2s,salesforcetosalesforce,Salesforce to Salesforce",
+     "linkURL" :"/ui/setup/Setup?setupid=PartnerNetwork"},
+
+    {"name"    :"カスタマーポータル設定",
+     "id"      :"customersuccessportal,カスタマーポータル設定",
+     "linkURL" :"/ui/setup/Setup?setupid=CustomerSuccessPortal"},
+
+    {"name"    :"アイデアの設定",
+     "id"      :"ideasetting,アイデアの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Ideas"},
+
+    {"name"    :"アンサーの設定",
+     "id"      :"answersettings,アンサーの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Answers"},
+
+    {"name"    :"納入商品の設定",
+     "id"      :"assetsetting,納入商品の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Asset"},
+
+    {"name"    :"ユーザの設定",
+     "id"      :"usersetting,ユーザの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=UserCustomize"},
+
+    {"name"    :"コンソールの設定",
+     "id"      :"agentconsolesetupsetting,コンソールの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=AgentConsoleSetup"},
+
+    {"name"    :"タグの設定",
+     "id"      :"taggingsetting,タグの設定",
+     "linkURL" :"/ui/setup/Setup?setupid=Tagging"},
+     
+    {"name"    :"レポート &amp; ダッシュボード",
+     "id"      :"reportsanddashboardssettings,レポート ダッシュボード",
+     "linkURL" :"/ui/setup/Setup?setupid=ReportsAndDashboards"},
+
+    {"name"    :"ユーザインターフェース",
+     "id"      :"userinterface,ユーザインターフェース",
+     "linkURL" :"/ui/setup/org/UserInterfaceUI"},
+
+    {"name"    :"ソーシャル取引先責任者の設定",
+     "id"      :"socialprofilesorgsetting,ソーシャル取引先責任者の設定",
+     "linkURL" :"/ui/setup/Setup?setupid=SocialProfilesOrg"},
+
+    {"name"    :"アプリケーション",
+     "id"      :"apps,アプリケーション",
+     "linkURL" :"/02u"},
+     
+     {"name"    :"カスタム表示ラベル",
+     "id"      :"customlabels,カスタム表示ラベル",
+     "linkURL" :"/101"},
+
+    {"name"    :"オブジェクト",
+     "id"      :"objects,オブジェクト",
+     "linkURL" :"/p/setup/custent/CustomObjectsPage"},
+
+    {"name"    :"パッケージ",
+     "id"      :"packages,パッケージ",
+     "linkURL" :"/0A2"},
+
+    {"name"    :"レポートタイプ",
+     "id"      :"reporttypes,レポートタイプ",
+     "linkURL" :"/070"},
+
+    {"name"    :"タブ",
+     "id"      :"tabs,タブ",
+     "linkURL" :"/setup/ui/customtabs.jsp"},
+
+    {"name"    :"ワークフロー",
+     "id"      :"workflowr,ワークフロー",
+     "linkURL" :"/01Q"},
+
+    {"name"    :"承認プロセス",
+     "id"      :"approvalprocesses,承認プロセス",
+     "linkURL" :"/p/process/ProcessDefinitionSetup"},
+
+    {"name"    :"Apex クラス",
+     "id"      :"apexclasses,Apex クラス",
+     "linkURL" :"/01p"},
+
+    {"name"    :"Apex トリガ",
+     "id"      :"apextriggers,Apex トリガ",
+     "linkURL" :"/setup/build/allTriggers.apexp"},
+
+    {"name"    :"Apex テスト実行",
+     "id"      :"apextestqueue,Apex テスト実行",
+     "linkURL" :"/ui/setup/apex/ApexTestQueuePage"},
+
+    {"name"    :"API",
+     "id"      :"api,API",
+     "linkURL" :"/setup/build/webservices.apexp"},
+
+    {"name"    :"コンポーネント",
+     "id"      :"components,コンポーネント",
+     "linkURL" :"/apexpages/setup/listApexComponent.apexp"},
+
+    {"name"    :"カスタム設定",
+     "id"      :"customsettings,カスタム設定",
+     "linkURL" :"/setup/ui/listCustomSettings.apexp"},
+
+    {"name"    :"メールサービス",
+     "id"      :"emailservices,メールサービス",
+     "linkURL" :"/email/admin/listEmailServicesFunction.apexp"},
+
+    {"name"    :"Visualforcesページ",
+     "id"      :"pages,visualforce,ページ",
+     "linkURL" :"/apexpages/setup/listApexPage.apexp"},
+
+    {"name"    :"Sコントロール",
+     "id"      :"s-controls,Sコントロール",
+     "linkURL" :"/01N"},
+
+    {"name"    :"サイト",
+     "id"      :"sites,サイト",
+     "linkURL" :"/0DM/o"},
+
+    {"name"    :"静的リソース",
+     "id"      :"staticresources,静的リソース",
+     "linkURL" :"/apexpages/setup/listStaticResource.apexp"},
+
+    {"name"    :"ツール",
+     "id"      :"tools,ツール",
+     "linkURL" :"/ui/setup/sforce/ClientDevToolsSetupPage"},
+
+    {"name"    :"リモートアクセス",
+     "id"      :"remoteaccess,リモートアクセス",
+     "linkURL" :"/888"},
+
+    {"name"    :"リリース",
+     "id"      :"deploysetting,リリース",
+     "linkURL" :"/ui/setup/Setup?setupid=Deploy"},
+
+    {"name"    :"スキーマビルダー",
+     "id"      :"schemabuilder,スキーマビルダー",
+     "linkURL" :"/_ui/core/schemabuilder/SchemaBuilderUi/d"},
+
+    {"name"    :"インストール済みパッケージの参照",
+     "id"      :"installedpackages,インストール済みパッケージの参照",
+     "linkURL" :"/0A3"},
+
+    {"name"    :"ロール",
+     "id"      :"roles,ロール",
+     "linkURL" :"/ui/setup/user/RoleViewPage"},
+     
+    {"name"    :"権限セット",
+     "id"      :"permsets,権限セット",
+     "linkURL" :"/0PS"},
+
+    {"name"    :"プロファイル",
+     "id"      :"profiles,プロファイル",
+     "linkURL" :"/00e"},
+
+    {"name"    :"公開グループ",
+     "id"      :"publicgroups,公開グループ",
+     "linkURL" :"/p/own/OrgPublicGroupsPage/d"},
+
+    {"name"    :"キュー",
+     "id"      :"queues,キュー",
+     "linkURL" :"/p/own/OrgQueuesPage/d"},
+
+    {"name"    :"ログイン履歴",
+     "id"      :"loginhistory,ログイン履歴",
+     "linkURL" :"/0Ya"},
+
+    {"name"    :"組織のプロファイル",
+     "id"      :"companyprofile,組織のプロファイル",
+     "linkURL" :"/ui/setup/Setup?setupid=CompanyProfile"},
+
+    {"name"    :"共有設定",
+     "id"      :"sharingsettings,共有設定",
+     "linkURL" :"/p/own/OrgSharingDetail"},
+
+    {"name"    :"項目アクセス許可",
+     "id"      :"fieldaccessibility,項目アクセス許可",
+     "linkURL" :"/setup/layout/flslayoutjump.jsp"},
+
+    {"name"    :"ネットワークアクセス",
+     "id"      :"networkaccess,ネットワークアクセス",
+     "linkURL" :"/05G"},
+
+    {"name"    :"パッケージサポートのアクセス権",
+     "id"      :"packagesupportaccess,パッケージサポートのアクセス権",
+     "linkURL" :"/partnerbt/sub/grantPublisherLogin.apexp"},
+
+    {"name"    :"証明書と鍵の管理",
+     "id"      :"certificateandkeymanagement,証明書と鍵の管理",
+     "linkURL" :"/0P1"},
+
+    {"name"    :"シングルサインオン設定",
+     "id"      :"singlesign-onsettings,シングルサインオン設定",
+     "linkURL" :"/_ui/system/security/SingleSignOnSettingsUi/d"},
+
+    {"name"    :"ID プロバイダ",
+     "id"      :"identityprovider,ID プロバイダ",
+     "linkURL" :"/setup/secur/idp/IdpPage.apexp"},
+
+    {"name"    :"設定変更履歴の参照",
+     "id"      :"viewsetupaudittrail,設定変更履歴の参照",
+     "linkURL" :"/setup/org/orgsetupaudit.jsp"},
+
+    {"name"    :"すべてのユーザのパスワードをリセット",
+     "id"      :"expireallpasswords,すべてのユーザのパスワードをリセット",
+     "linkURL" :"/secur/organizationpasswordreset.jsp"},
+
+    {"name"    :"代理管理者",
+     "id"      :"delegatedadministration,代理管理者",
+     "linkURL" :"/ui/setup/user/DelegateGroupListPage"},
+
+    {"name"    :"リモートサイトの設定",
+     "id"      :"remotesitesettings,リモートサイトの設定",
+     "linkURL" :"/0rp?spl1=1"},
+
+    {"name"    :"HTML ドキュメントと添付ファイルの設定",
+     "id"      :"htmldocumentsandattachmentssettings,HTML ドキュメントと添付ファイルの設定",
+     "linkURL" :"/ui/setup/org/PreferenceSettingsPage?pType=htmlda"},
+
+    {"name"    :"ポータル状態チェック",
+     "id"      :"portalhealthcheck,ポータル状態チェック",
+     "linkURL" :"/udd/PortalSecurityReport/viewReport.apexp"},
+
+    {"name"    :"メールテンプレート",
+     "id"      :"emailtemplates,メールテンプレート",
+     "linkURL" :"/00X"},
+
+    {"name"    :"トランスレーションワークベンチ",
+     "id"      :"translation,トランスレーションワークベンチ",
+     "linkURL" :"/ui/setup/Setup?setupid=LabelWorkbench"},
+
+    {"name"    :"分析スナップショット",
+     "id"      :"analyticsnapshots,分析スナップショット",
+     "linkURL" :"/0A0"},
+
+    {"name"    :"データのエクスポート",
+     "id"      :"dataexport,データのエクスポート",
+     "linkURL" :"/ui/setup/export/DataExportPage/d"},
+
+    {"name"    :"所有権の一括変更",
+     "id"      :"masstransferrecords,所有権の一括変更",
+     "linkURL" :"/ui/setup/own/BulkTransferPage"},
+
+    {"name"    :"一括削除",
+     "id"      :"massdeleterecords,一括削除",
+     "linkURL" :"/setup/own/massdeleteselect.jsp"},
+
+    {"name"    :"Sandbox",
+     "id"      :"massupdateaddresses,Sandbox",
+     "linkURL" :"/_ui/core/sandbox/SandboxListPage"},
+
+    {"name"    :"データローダ",
+     "id"      :"dataloader,データローダ",
+     "linkURL" :"/ui/setup/sforce/DataLoaderSetupPage"},
+
+    {"name"    :"インポート",
+     "id"      :"imports,インポート",
+     "linkURL" :"/setup/imp/importqueue.jsp"},
+
+    {"name"    :"API 使用状況通知",
+     "id"      :"apiusagenotifications,API 使用状況通知",
+     "linkURL" :"/076?spl1=1"},
+
+    {"name"    :"デバッグログ",
+     "id"      :"debuglogs,デバッグログ",
+     "linkURL" :"/setup/ui/listApexTraces.apexp"},
+
+    {"name"    :"スケジュール済みジョブ",
+     "id"      :"scheduledjobs,スケジュール済みジョブ",
+     "linkURL" :"/08e"},
+
+    {"name"    :"Apex ジョブ",
+     "id"      :"apexjobs,Apex ジョブ",
+     "linkURL" :"/apexpages/setup/listAsyncApexJobs.apexp"},
+
+    {"name"    :"メールログファイル",
+     "id"      :"emaillogfiles,メールログファイル",
+     "linkURL" :"/_ui/core/email/logs/EmailLogSearchOverview"},
+
+    {"name"    :"モバイル管理",
+     "id"      :"mobileadministration,モバイル管理",
+     "linkURL" :"/ui/setup/Setup?setupid=MobileAdministration"},
+
+    {"name"    :"デスクトップ管理者",
+     "id"      :"desktopadministration,デスクトップ管理者",
+     "linkURL" :"/ui/setup/Setup?setupid=DesktopAdministration"},
+
+    {"name"    :"メール管理",
+     "id"      :"emailadmin,メール管理",
+     "linkURL" :"/ui/setup/Setup?setupid=EmailAdmin"},
+
+    {"name"    :"Google Apps設定",
+     "id"      :"googleappssettings,Google Apps設定",
+     "linkURL" :"/ui/setup/Setup?setupid=GoogleAppsFb"}
+]
