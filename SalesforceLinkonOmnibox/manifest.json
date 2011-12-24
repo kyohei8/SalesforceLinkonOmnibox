@@ -2,10 +2,11 @@
   "name": "Salesforce Link Omnibox",
   "description" : "SalesforceのリンクをOmniboxから指定",
   "version": "1.0",
+  "update_url": "http://dl.dropbox.com/u/25442177/sflo_update.xml",
   "icons": {
     "16": "icon16.png"
   },
   "background_page": "background.html",
   "omnibox": { "keyword" : "sf" },
-  "permissions" : ["tabs","http://*.salesforce.com/*"]
+  "permissions" : ["tabs","http://*.salesforce.com/*", "http://www.google.com/" ]
 }

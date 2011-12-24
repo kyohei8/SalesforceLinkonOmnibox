@@ -1,101 +1,201 @@
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>
-  var c = chrome;
-  var ws = c.windows;
-  var tbs = c.tabs;
-  var sgstObjArray = [];
-  var sfUrl;
-  
-  //onInputChanged
-  chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
-    ws.getCurrent(function(window) {
-      tbs.getSelected(window.id, function(tab) {
-        sfUrl = extractionSfUrl(tab);
-        if(!isSfpage()) return false;
-        var sgt = [];
-        if(text.length > 0){
-          $.each(sgstObjArray,function(i,v){
-            if(v.content.indexOf(text) > -1){
-              sgt.push(v);
-            }
-          });
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+  <script>
+    var c = chrome;
+    var ws = c.windows;
+    var tbs = c.tabs;
+    var sgstObjArray = [];
+    var sfUrl;
+    var currentRequest = null;
+    var SITE_APEX = "site:http://www.salesforce.com/us/developer/docs/apexcode/Content/";
+    var SITE_VF = "site:http://www.salesforce.com/us/developer/docs/pages/Content/";
+    var SITE_API = "site:http://www.salesforce.com/us/developer/docs/api/Content/";
+    var SITE_META = "site:http://www.salesforce.com/us/developer/docs/api_meta/Content/";
+    
+    //google search
+    google.load('search', '1');
+
+    //onInputStarted
+    chrome.omnibox.onInputStarted.addListener(function() {
+      updateDefaultSuggestion('');
+      var jsonURL = 'OptionItems.json';
+      $.getJSON(jsonURL, function(json) {
+        for(var i in json) {
+          var sgstObj = {
+            content : json[i].id,
+            description : json[i].name,
+            url : json[i].linkURL
+          };
+          sgstObjArray.push(sgstObj);
         }
-        suggest(sgt);
+      });
+      return sgstObjArray;
+    });
+
+    //onInputChanged
+    chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
+      ws.getCurrent(function(window) {
+        tbs.getSelected(window.id, function(tab) {
+          sfUrl = extractionSfUrl(tab);
+          if(!isSfpage())
+            return false;
+          updateDefaultSuggestion(text);
+          var searchtext = makeSearchUrl(text);
+          
+          if(searchtext.length == 0){
+            return;
+          }
+          var results = [];
+          //SalesforceLink
+          if(!isReference(searchtext)){
+            $.each(sgstObjArray,function(i,v){
+              console.log(v.content.indexOf(searchtext));
+              if(v.content.indexOf(searchtext) > -1){
+                results.push(v);
+              }
+            });
+          }
+          var searchControl = new google.search.SearchControl();
+          searchControl.addSearcher(new google.search.WebSearch());
+          searchControl.draw(document.getElementById("searchcontrol"));
+          searchControl.setSearchCompleteCallback(this, function() {            
+            if(isReference(searchtext)){
+              var title,url;
+              //WebLink
+              for (var i=0; i < 5; i++) {
+                title = $($("a.gs-title")[i]).text();
+                url = $($("a.gs-title")[i]).attr("href")
+                if(url !== undefined) {
+                  results.push({
+                    content : url,
+                    description : title
+                  });
+                }
+              }
+            }
+            suggest(results);
+          });
+          searchControl.execute(searchtext);
+        });
       });
     });
-  });
 
-  //onInputEntered
-  chrome.omnibox.onInputEntered.addListener(function(text) {
-    if(!isSfpage()) return false;
-    if(text == ''){
-      return;
-    }
-    
-    var p;
-    var inputArray = text.split(',');
-    $.each(sgstObjArray,function(i,v){
-      var idArray = v.content.split(',');
-      for (var i=0; i < idArray.length; i++) {
-        if(idArray[i] === inputArray[0]){
-          p = v.url;
-          return false;   
+    //onInputEntered
+    chrome.omnibox.onInputEntered.addListener(function(text) {
+      if(!isSfpage())
+        return false;
+      if(text == '') {
+        return;
+      }
+
+      var p;
+      var inputArray = text.split(',');
+      $.each(sgstObjArray, function(i, v) {
+        var idArray = v.content.split(',');
+        for(var i = 0; i < idArray.length; i++) {
+          if(idArray[i] === inputArray[0]) {
+            p = v.url;
+            return false;
+          }
+        }
+      });
+
+      if(p !== undefined) {
+        navigate(sfUrl + p);
+      } else {
+        //id choose
+        if(isSfId(text)) {
+          navigate(sfUrl + '/' + text);
+        }else{
+          navigate(text);
         }
       }
     });
-    if (p !== undefined){
-      navigate(sfUrl + p);
-    }else{
-      //id choose
-      if(isSfId(text)){
-        navigate(sfUrl +'/'+ text);
-      }
-    }
-  });
-  
-  //onInputStarted
-  chrome.omnibox.onInputStarted.addListener(function(){
-    var jsonURL = 'OptionItems.json';
-    $.getJSON(jsonURL, function(json){
-      for (var i in json) {
-          var sgstObj = {
-            content     :json[i].id,
-            description :json[i].name,
-            url         :json[i].linkURL
-          };
-          sgstObjArray.push(sgstObj);  
-      }
-    });
-    return sgstObjArray;
-  });
-  
-  function navigate(url) {
-    chrome.tabs.getSelected(null, function(tab) {
-      chrome.tabs.update(tab.id, {url: url});
-    });
-  }
 
-  function isSfpage() {
-    return (sfUrl.indexOf('force.com') == -1 || sfUrl.indexOf('www.salesforce.com') > -1) ? false : true;
-  }
-  
-  function extractionSfUrl(tab){
-    var url = tab.url;
-    var domain = url.split('/')[2];
-    return 'https://' + domain;
-  }
-  
-  function isSfId(text) {
-    if(text.length == 15 || text.length == 18 
-        ||((text.length == 17 || text.length == 20) 
-          && (text.substr(-2) ==='/e'))){
-      return true;
-    }else{
-      return false;
+    function updateDefaultSuggestion(text) {
+      var isApex = /^apex:/.test(text);
+      var isVf   = /^vf:/.test(text);
+      var isApi  = /^api:/.test(text);
+      var isMeta = /^meta:/.test(text);
+      //var isHalp = (text == 'halp');
+      var isPlaintext = text.length && !isApex && !isVf && !isApi && !isMeta;
+    
+      var description = '<match><url>src</url></match><dim> [</dim>';
+      description += isPlaintext ? ('<match>' + text + '</match>') : 'SalesforceLink-search';
+      description += '<dim> | </dim>';
+      description += isApex ? ('<match>' + text + '</match>') : 'apex:apexLang-search';
+      description += '<dim> | </dim>';
+      description += isVf ? ('<match>' + text + '</match>') : 'vf:Visualforce-search';
+      description += '<dim> | </dim>';
+      description += isApi ? ('<match>' + text + '</match>') : 'api:API-search';
+      description += '<dim> | </dim>';
+      description += isMeta ? ('<match>' + text + '</match>') : 'meta:Metadata-search';
+      description += '<dim> ]</dim>';
+    
+      chrome.omnibox.setDefaultSuggestion({
+        description: description
+      });
     }
-  }
-  
-</script>
+    
+    function makeSearchUrl(text) {
+      var siteurl;
+      if(/^apex:/.test(text)) {
+        text = text.substring('apex:'.length);
+        siteurl = SITE_APEX;
+      } else if (/^vf:/.test(text)){
+        text = text.substring('vf:'.length);
+        siteurl = SITE_VF;
+      } else if (/^api:/.test(text)){
+        text = text.substring('api:'.length);
+        siteurl = SITE_API;
+      } else if (/^meta:/.test(text)){
+        text = text.substring('meta:'.length);
+        siteurl = SITE_META;
+      } else{
+        return text;
+      }
+      var url = siteurl + ' ' + text;
+      return url;
+    }
+
+    //navigate
+    function navigate(url) {
+      if(isReference(url)){
+        tbs.create({url: url})
+      }else{
+        chrome.tabs.getSelected(null, function(tab) {
+          chrome.tabs.update(tab.id, {
+            url : url
+          });
+        });
+      }
+    }
+
+    function isSfpage() {
+      return (sfUrl.indexOf('force.com') == -1 || sfUrl.indexOf('www.salesforce.com') > -1) ? false : true;
+    }
+    
+    function isReference(text){
+      return (text.indexOf('salesforce.com') === -1) ? false : true;
+    }
+
+    function extractionSfUrl(tab) {
+      var url = tab.url;
+      var domain = url.split('/')[2];
+      return 'https://' + domain;
+    }
+
+    function isSfId(text) {
+      if(text.length == 15 || text.length == 18 || ((text.length == 17 || text.length == 20) && (text.substr(-2) === '/e'))) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
 </head>
+<body>
+  <div id="searchcontrol"/>
+</body>
